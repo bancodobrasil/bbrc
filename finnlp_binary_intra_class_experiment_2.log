@@ -1,0 +1,365 @@
+2024-03-25 22:04:21.531 | INFO     | __main__:<module>:5 - 
+
+####################################### NEW EXECUTION #######################################
+
+
+2024-03-25 22:04:21.532 | INFO     | __main__:<module>:6 - Processors (cores) available: 10
+2024-03-25 22:04:31.342 | INFO     | __main__:<module>:4 - boards_list: ['usi', 'cib', 'bb_asset']
+2024-03-25 22:04:31.367 | INFO     | __main__:<module>:2 - 
+
+####### usi EXECUTING #######
+
+
+2024-03-25 22:04:31.368 | INFO     | __main__:<module>:4 - total_relevant_documents_of_the_board: 104 - usi
+2024-03-25 22:04:31.369 | INFO     | __main__:<module>:5 - Total irrelevant documents of the department: 104
+2024-03-25 22:04:31.370 | INFO     | __main__:<module>:8 - data_relevant_board: (104, 17) - usi
+2024-03-25 22:04:31.371 | INFO     | __main__:<module>:12 - data_irrelevant_board: (104, 17) - usi
+2024-03-25 22:04:31.373 | INFO     | __main__:<module>:20 - df_final_dataset: (208, 17) - usi
+2024-03-25 22:04:31.373 | DEBUG    | __main__:<module>:23 - [+] Start cleaning text and title
+2024-03-25 22:04:32.281 | DEBUG    | __main__:<module>:28 - [+] End cleaning text and title
+2024-03-25 22:04:32.282 | DEBUG    | __main__:<module>:34 - [+] Start TF-IDF
+2024-03-25 22:04:32.408 | DEBUG    | __main__:<module>:38 - [+] End TF-IDF
+2024-03-25 22:04:32.408 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### random_forest INDUCTOR EXECUTING ####### - usi
+
+
+2024-03-25 22:04:32.410 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: RandomForestClassifier(n_jobs=10, random_state=42) - random_forest - usi
+2024-03-25 22:04:32.411 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'n_estimators': [100, 400, 1000], 'max_depth': [10, 30, 100], 'criterion': ['entropy', 'log_loss', 'gini']} - random_forest - usi
+2024-03-25 22:04:32.411 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - random_forest - usi
+2024-03-25 22:06:02.600 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - random_forest - usi
+2024-03-25 22:06:02.602 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: RandomForestClassifier(max_depth=30, n_jobs=10, random_state=42) 
+
+2024-03-25 22:06:02.778 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS random_forest - usi #######
+
+
+2024-03-25 22:06:02.781 | SUCCESS  | __main__:training_each_inductor_holdout:33 - random_forest - usi - test_precision: 0.5609756097560976
+2024-03-25 22:06:02.782 | SUCCESS  | __main__:training_each_inductor_holdout:35 - random_forest - usi - test_recall: 0.5476190476190477
+2024-03-25 22:06:02.784 | SUCCESS  | __main__:training_each_inductor_holdout:37 - random_forest - usi - test_f1_binary: 0.5542168674698796
+2024-03-25 22:06:02.786 | SUCCESS  | __main__:training_each_inductor_holdout:39 - random_forest - usi - test_f1_macro: 0.5594613749114103
+2024-03-25 22:06:02.786 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### svm INDUCTOR EXECUTING ####### - usi
+
+
+2024-03-25 22:06:02.787 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: SVC(random_state=42) - svm - usi
+2024-03-25 22:06:02.788 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'C': [0.025, 0.08, 0.1, 0.5, 0.8, 1.0, 2.0, 10.0, 100.0, 500.0, 1000.0], 'kernel': ['linear', 'poly', 'rbf', 'sigmoid']} - svm - usi
+2024-03-25 22:06:02.788 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - svm - usi
+2024-03-25 22:06:08.266 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - svm - usi
+2024-03-25 22:06:08.267 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: SVC(C=10.0, kernel='sigmoid', random_state=42) 
+
+2024-03-25 22:06:08.311 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS svm - usi #######
+
+
+2024-03-25 22:06:08.313 | SUCCESS  | __main__:training_each_inductor_holdout:33 - svm - usi - test_precision: 0.5576923076923077
+2024-03-25 22:06:08.314 | SUCCESS  | __main__:training_each_inductor_holdout:35 - svm - usi - test_recall: 0.6904761904761905
+2024-03-25 22:06:08.316 | SUCCESS  | __main__:training_each_inductor_holdout:37 - svm - usi - test_f1_binary: 0.6170212765957447
+2024-03-25 22:06:08.317 | SUCCESS  | __main__:training_each_inductor_holdout:39 - svm - usi - test_f1_macro: 0.5652673950546291
+2024-03-25 22:06:08.318 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### xgboost INDUCTOR EXECUTING ####### - usi
+
+
+2024-03-25 22:06:08.319 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=100, n_jobs=10, num_class=2, num_parallel_tree=None,
+              predictor=None, ...) - xgboost - usi
+2024-03-25 22:06:08.319 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'objective': ['reg:squarederror', 'binary:logistic', 'multi:softmax', 'binary:hinge'], 'n_estimators': [100, 1000], 'max_depth': [10, 30], 'learning_rate': [0.01, 0.5]} - xgboost - usi
+2024-03-25 22:06:08.320 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - xgboost - usi
+2024-03-25 22:13:09.722 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - xgboost - usi
+2024-03-25 22:13:09.724 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.01, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=30, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=1000, n_jobs=10, num_class=2, num_parallel_tree=None,
+              objective='multi:softmax', ...) 
+
+2024-03-25 22:13:13.091 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS xgboost - usi #######
+
+
+2024-03-25 22:13:13.093 | SUCCESS  | __main__:training_each_inductor_holdout:33 - xgboost - usi - test_precision: 0.6190476190476191
+2024-03-25 22:13:13.095 | SUCCESS  | __main__:training_each_inductor_holdout:35 - xgboost - usi - test_recall: 0.6190476190476191
+2024-03-25 22:13:13.097 | SUCCESS  | __main__:training_each_inductor_holdout:37 - xgboost - usi - test_f1_binary: 0.6190476190476191
+2024-03-25 22:13:13.099 | SUCCESS  | __main__:training_each_inductor_holdout:39 - xgboost - usi - test_f1_macro: 0.6190476190476191
+2024-03-25 22:13:13.100 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### nb INDUCTOR EXECUTING ####### - usi
+
+
+2024-03-25 22:13:13.101 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: MultinomialNB() - nb - usi
+2024-03-25 22:13:13.101 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'alpha': [1, 0.1, 0.01, 0.001, 0.0001, 1e-05], 'force_alpha': [True, False], 'fit_prior': [True, False]} - nb - usi
+2024-03-25 22:13:13.102 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - nb - usi
+2024-03-25 22:13:13.572 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - nb - usi
+2024-03-25 22:13:13.572 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: MultinomialNB(alpha=1, force_alpha=True) 
+
+2024-03-25 22:13:13.576 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS nb - usi #######
+
+
+2024-03-25 22:13:13.578 | SUCCESS  | __main__:training_each_inductor_holdout:33 - nb - usi - test_precision: 0.5068493150684932
+2024-03-25 22:13:13.580 | SUCCESS  | __main__:training_each_inductor_holdout:35 - nb - usi - test_recall: 0.8809523809523809
+2024-03-25 22:13:13.581 | SUCCESS  | __main__:training_each_inductor_holdout:37 - nb - usi - test_f1_binary: 0.6434782608695652
+2024-03-25 22:13:13.583 | SUCCESS  | __main__:training_each_inductor_holdout:39 - nb - usi - test_f1_macro: 0.4349466776045939
+2024-03-25 22:13:13.583 | SUCCESS  | __main__:<module>:44 - 
+
+[+][+][+] SUCCESS! [+][+][+]
+
+
+2024-03-25 22:13:13.584 | INFO     | __main__:<module>:2 - 
+
+####### cib EXECUTING #######
+
+
+2024-03-25 22:13:13.586 | INFO     | __main__:<module>:4 - total_relevant_documents_of_the_board: 196 - cib
+2024-03-25 22:13:13.588 | INFO     | __main__:<module>:5 - Total irrelevant documents of the department: 196
+2024-03-25 22:13:13.589 | INFO     | __main__:<module>:8 - data_relevant_board: (196, 17) - cib
+2024-03-25 22:13:13.591 | INFO     | __main__:<module>:12 - data_irrelevant_board: (196, 17) - cib
+2024-03-25 22:13:13.593 | INFO     | __main__:<module>:20 - df_final_dataset: (392, 17) - cib
+2024-03-25 22:13:13.593 | DEBUG    | __main__:<module>:23 - [+] Start cleaning text and title
+2024-03-25 22:13:18.565 | DEBUG    | __main__:<module>:28 - [+] End cleaning text and title
+2024-03-25 22:13:18.567 | DEBUG    | __main__:<module>:34 - [+] Start TF-IDF
+2024-03-25 22:13:19.174 | DEBUG    | __main__:<module>:38 - [+] End TF-IDF
+2024-03-25 22:13:19.174 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### random_forest INDUCTOR EXECUTING ####### - cib
+
+
+2024-03-25 22:13:19.176 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: RandomForestClassifier(n_jobs=10, random_state=42) - random_forest - cib
+2024-03-25 22:13:19.176 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'n_estimators': [100, 400, 1000], 'max_depth': [10, 30, 100], 'criterion': ['entropy', 'log_loss', 'gini']} - random_forest - cib
+2024-03-25 22:13:19.177 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - random_forest - cib
+2024-03-25 22:15:59.753 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - random_forest - cib
+2024-03-25 22:15:59.754 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: RandomForestClassifier(max_depth=100, n_estimators=400, n_jobs=10,
+                       random_state=42) 
+
+2024-03-25 22:16:00.488 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS random_forest - cib #######
+
+
+2024-03-25 22:16:00.490 | SUCCESS  | __main__:training_each_inductor_holdout:33 - random_forest - cib - test_precision: 0.6631578947368421
+2024-03-25 22:16:00.491 | SUCCESS  | __main__:training_each_inductor_holdout:35 - random_forest - cib - test_recall: 0.8076923076923077
+2024-03-25 22:16:00.493 | SUCCESS  | __main__:training_each_inductor_holdout:37 - random_forest - cib - test_f1_binary: 0.7283236994219653
+2024-03-25 22:16:00.494 | SUCCESS  | __main__:training_each_inductor_holdout:39 - random_forest - cib - test_f1_macro: 0.697495183044316
+2024-03-25 22:16:00.494 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### svm INDUCTOR EXECUTING ####### - cib
+
+
+2024-03-25 22:16:00.495 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: SVC(random_state=42) - svm - cib
+2024-03-25 22:16:00.495 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'C': [0.025, 0.08, 0.1, 0.5, 0.8, 1.0, 2.0, 10.0, 100.0, 500.0, 1000.0], 'kernel': ['linear', 'poly', 'rbf', 'sigmoid']} - svm - cib
+2024-03-25 22:16:00.496 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - svm - cib
+2024-03-25 22:16:23.532 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - svm - cib
+2024-03-25 22:16:23.533 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: SVC(C=2.0, kernel='linear', random_state=42) 
+
+2024-03-25 22:16:23.709 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS svm - cib #######
+
+
+2024-03-25 22:16:23.711 | SUCCESS  | __main__:training_each_inductor_holdout:33 - svm - cib - test_precision: 0.6777777777777778
+2024-03-25 22:16:23.713 | SUCCESS  | __main__:training_each_inductor_holdout:35 - svm - cib - test_recall: 0.782051282051282
+2024-03-25 22:16:23.715 | SUCCESS  | __main__:training_each_inductor_holdout:37 - svm - cib - test_f1_binary: 0.7261904761904762
+2024-03-25 22:16:23.717 | SUCCESS  | __main__:training_each_inductor_holdout:39 - svm - cib - test_f1_macro: 0.7055609915198956
+2024-03-25 22:16:23.718 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### xgboost INDUCTOR EXECUTING ####### - cib
+
+
+2024-03-25 22:16:23.719 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=100, n_jobs=10, num_class=2, num_parallel_tree=None,
+              predictor=None, ...) - xgboost - cib
+2024-03-25 22:16:23.720 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'objective': ['reg:squarederror', 'binary:logistic', 'multi:softmax', 'binary:hinge'], 'n_estimators': [100, 1000], 'max_depth': [10, 30], 'learning_rate': [0.01, 0.5]} - xgboost - cib
+2024-03-25 22:16:23.721 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - xgboost - cib
+2024-03-25 22:36:02.993 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - xgboost - cib
+2024-03-25 22:36:02.999 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.5, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=10, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=1000, n_jobs=10, num_class=2, num_parallel_tree=None,
+              objective='multi:softmax', ...) 
+
+2024-03-25 22:36:05.135 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS xgboost - cib #######
+
+
+2024-03-25 22:36:05.137 | SUCCESS  | __main__:training_each_inductor_holdout:33 - xgboost - cib - test_precision: 0.6341463414634146
+2024-03-25 22:36:05.139 | SUCCESS  | __main__:training_each_inductor_holdout:35 - xgboost - cib - test_recall: 0.6666666666666666
+2024-03-25 22:36:05.141 | SUCCESS  | __main__:training_each_inductor_holdout:37 - xgboost - cib - test_f1_binary: 0.6499999999999999
+2024-03-25 22:36:05.143 | SUCCESS  | __main__:training_each_inductor_holdout:39 - xgboost - cib - test_f1_macro: 0.6431818181818181
+2024-03-25 22:36:05.144 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### nb INDUCTOR EXECUTING ####### - cib
+
+
+2024-03-25 22:36:05.145 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: MultinomialNB() - nb - cib
+2024-03-25 22:36:05.146 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'alpha': [1, 0.1, 0.01, 0.001, 0.0001, 1e-05], 'force_alpha': [True, False], 'fit_prior': [True, False]} - nb - cib
+2024-03-25 22:36:05.147 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - nb - cib
+2024-03-25 22:36:05.792 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - nb - cib
+2024-03-25 22:36:05.794 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: MultinomialNB(alpha=1, force_alpha=True) 
+
+2024-03-25 22:36:05.803 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS nb - cib #######
+
+
+2024-03-25 22:36:05.809 | SUCCESS  | __main__:training_each_inductor_holdout:33 - nb - cib - test_precision: 0.6181818181818182
+2024-03-25 22:36:05.814 | SUCCESS  | __main__:training_each_inductor_holdout:35 - nb - cib - test_recall: 0.8717948717948718
+2024-03-25 22:36:05.820 | SUCCESS  | __main__:training_each_inductor_holdout:37 - nb - cib - test_f1_binary: 0.723404255319149
+2024-03-25 22:36:05.825 | SUCCESS  | __main__:training_each_inductor_holdout:39 - nb - cib - test_f1_macro: 0.6553529213103682
+2024-03-25 22:36:05.827 | SUCCESS  | __main__:<module>:44 - 
+
+[+][+][+] SUCCESS! [+][+][+]
+
+
+2024-03-25 22:36:05.829 | INFO     | __main__:<module>:2 - 
+
+####### bb_asset EXECUTING #######
+
+
+2024-03-25 22:36:05.832 | INFO     | __main__:<module>:4 - total_relevant_documents_of_the_board: 52 - bb_asset
+2024-03-25 22:36:05.835 | INFO     | __main__:<module>:5 - Total irrelevant documents of the department: 52
+2024-03-25 22:36:05.839 | INFO     | __main__:<module>:8 - data_relevant_board: (52, 17) - bb_asset
+2024-03-25 22:36:05.843 | INFO     | __main__:<module>:12 - data_irrelevant_board: (52, 17) - bb_asset
+2024-03-25 22:36:05.853 | INFO     | __main__:<module>:20 - df_final_dataset: (104, 17) - bb_asset
+2024-03-25 22:36:05.856 | DEBUG    | __main__:<module>:23 - [+] Start cleaning text and title
+2024-03-25 22:36:06.481 | DEBUG    | __main__:<module>:28 - [+] End cleaning text and title
+2024-03-25 22:36:06.482 | DEBUG    | __main__:<module>:34 - [+] Start TF-IDF
+2024-03-25 22:36:06.554 | DEBUG    | __main__:<module>:38 - [+] End TF-IDF
+2024-03-25 22:36:06.555 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### random_forest INDUCTOR EXECUTING ####### - bb_asset
+
+
+2024-03-25 22:36:06.555 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: RandomForestClassifier(n_jobs=10, random_state=42) - random_forest - bb_asset
+2024-03-25 22:36:06.556 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'n_estimators': [100, 400, 1000], 'max_depth': [10, 30, 100], 'criterion': ['entropy', 'log_loss', 'gini']} - random_forest - bb_asset
+2024-03-25 22:36:06.556 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - random_forest - bb_asset
+2024-03-25 22:37:02.353 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - random_forest - bb_asset
+2024-03-25 22:37:02.354 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: RandomForestClassifier(max_depth=10, n_jobs=10, random_state=42) 
+
+2024-03-25 22:37:02.517 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS random_forest - bb_asset #######
+
+
+2024-03-25 22:37:02.519 | SUCCESS  | __main__:training_each_inductor_holdout:33 - random_forest - bb_asset - test_precision: 0.6842105263157895
+2024-03-25 22:37:02.520 | SUCCESS  | __main__:training_each_inductor_holdout:35 - random_forest - bb_asset - test_recall: 0.6190476190476191
+2024-03-25 22:37:02.522 | SUCCESS  | __main__:training_each_inductor_holdout:37 - random_forest - bb_asset - test_f1_binary: 0.6500000000000001
+2024-03-25 22:37:02.523 | SUCCESS  | __main__:training_each_inductor_holdout:39 - random_forest - bb_asset - test_f1_macro: 0.665909090909091
+2024-03-25 22:37:02.524 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### svm INDUCTOR EXECUTING ####### - bb_asset
+
+
+2024-03-25 22:37:02.525 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: SVC(random_state=42) - svm - bb_asset
+2024-03-25 22:37:02.526 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'C': [0.025, 0.08, 0.1, 0.5, 0.8, 1.0, 2.0, 10.0, 100.0, 500.0, 1000.0], 'kernel': ['linear', 'poly', 'rbf', 'sigmoid']} - svm - bb_asset
+2024-03-25 22:37:02.526 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - svm - bb_asset
+2024-03-25 22:37:04.354 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - svm - bb_asset
+2024-03-25 22:37:04.356 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: SVC(C=0.5, kernel='sigmoid', random_state=42) 
+
+2024-03-25 22:37:04.371 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS svm - bb_asset #######
+
+
+2024-03-25 22:37:04.373 | SUCCESS  | __main__:training_each_inductor_holdout:33 - svm - bb_asset - test_precision: 0.6428571428571429
+2024-03-25 22:37:04.375 | SUCCESS  | __main__:training_each_inductor_holdout:35 - svm - bb_asset - test_recall: 0.42857142857142855
+2024-03-25 22:37:04.377 | SUCCESS  | __main__:training_each_inductor_holdout:37 - svm - bb_asset - test_f1_binary: 0.5142857142857143
+2024-03-25 22:37:04.378 | SUCCESS  | __main__:training_each_inductor_holdout:39 - svm - bb_asset - test_f1_macro: 0.5836734693877551
+2024-03-25 22:37:04.379 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### xgboost INDUCTOR EXECUTING ####### - bb_asset
+
+
+2024-03-25 22:37:04.380 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=100, n_jobs=10, num_class=2, num_parallel_tree=None,
+              predictor=None, ...) - xgboost - bb_asset
+2024-03-25 22:37:04.380 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'objective': ['reg:squarederror', 'binary:logistic', 'multi:softmax', 'binary:hinge'], 'n_estimators': [100, 1000], 'max_depth': [10, 30], 'learning_rate': [0.01, 0.5]} - xgboost - bb_asset
+2024-03-25 22:37:04.381 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - xgboost - bb_asset
+2024-03-25 22:40:29.258 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - xgboost - bb_asset
+2024-03-25 22:40:29.260 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.01, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=10, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=1000, n_jobs=10, num_class=2, num_parallel_tree=None,
+              objective='multi:softmax', ...) 
+
+2024-03-25 22:40:30.831 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS xgboost - bb_asset #######
+
+
+2024-03-25 22:40:30.833 | SUCCESS  | __main__:training_each_inductor_holdout:33 - xgboost - bb_asset - test_precision: 0.6842105263157895
+2024-03-25 22:40:30.835 | SUCCESS  | __main__:training_each_inductor_holdout:35 - xgboost - bb_asset - test_recall: 0.6190476190476191
+2024-03-25 22:40:30.837 | SUCCESS  | __main__:training_each_inductor_holdout:37 - xgboost - bb_asset - test_f1_binary: 0.6500000000000001
+2024-03-25 22:40:30.838 | SUCCESS  | __main__:training_each_inductor_holdout:39 - xgboost - bb_asset - test_f1_macro: 0.665909090909091
+2024-03-25 22:40:30.839 | INFO     | __main__:training_each_inductor_holdout:6 - 
+
+####### nb INDUCTOR EXECUTING ####### - bb_asset
+
+
+2024-03-25 22:40:30.840 | DEBUG    | __main__:training_each_inductor_holdout:8 - [+] classifiers[key]['estimator']: MultinomialNB() - nb - bb_asset
+2024-03-25 22:40:30.841 | DEBUG    | __main__:training_each_inductor_holdout:9 - [+] classifiers[key]['parameters']: {'alpha': [1, 0.1, 0.01, 0.001, 0.0001, 1e-05], 'force_alpha': [True, False], 'fit_prior': [True, False]} - nb - bb_asset
+2024-03-25 22:40:30.842 | DEBUG    | __main__:training_each_inductor_holdout:19 - [+] Start GridSearchCV - nb - bb_asset
+2024-03-25 22:40:31.267 | DEBUG    | __main__:training_each_inductor_holdout:21 - [+] End GridSearchCV - nb - bb_asset
+2024-03-25 22:40:31.267 | INFO     | __main__:training_each_inductor_holdout:23 - search.best_estimator_: MultinomialNB(alpha=0.1, force_alpha=True) 
+
+2024-03-25 22:40:31.272 | SUCCESS  | __main__:training_each_inductor_holdout:31 - 
+
+####### METRICS nb - bb_asset #######
+
+
+2024-03-25 22:40:31.273 | SUCCESS  | __main__:training_each_inductor_holdout:33 - nb - bb_asset - test_precision: 0.6
+2024-03-25 22:40:31.274 | SUCCESS  | __main__:training_each_inductor_holdout:35 - nb - bb_asset - test_recall: 0.42857142857142855
+2024-03-25 22:40:31.276 | SUCCESS  | __main__:training_each_inductor_holdout:37 - nb - bb_asset - test_f1_binary: 0.5
+2024-03-25 22:40:31.277 | SUCCESS  | __main__:training_each_inductor_holdout:39 - nb - bb_asset - test_f1_macro: 0.5625
+2024-03-25 22:40:31.277 | SUCCESS  | __main__:<module>:44 - 
+
+[+][+][+] SUCCESS! [+][+][+]
+
+
