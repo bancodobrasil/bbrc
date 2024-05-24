@@ -14,3 +14,5 @@ Presentation: https://drive.google.com/file/d/1vxKThA_CqDIX6XalFk68yb8WeTwDtek7/
 FinNLP: https://sites.google.com/nlg.csie.ntu.edu.tw/finnlp-kdf-2024/home
 
 LREC-COLING 2024: https://lrec-coling-2024.org/
+
+LinkedIn post: https://www.linkedin.com/feed/update/urn:li:activity:7199492778874015745/
